@@ -1,0 +1,37 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.home__btn__box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home__link__btn {
+    margin: .5em;
+    padding: .5em;
+    width: 120px;
+    background-color: #ddd;
+    color: #333;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.home__link__btn:hover {
+    transition: .5;
+    background-color: #ccc;
+    color: #222;
+}
+
+.group__card {
+    margin: 1em;
+    padding: 1em;
+    background-color: #444;
+    border: none;
+    border-radius: 10px;
+}

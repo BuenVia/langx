@@ -1,0 +1,17 @@
+{% extends "subjunctive/base.html" %}
+
+{% block content %}
+
+
+    <div class="home__btn__box">
+        {% for group in groups %}
+            <div class="group__card">
+                <p>{{ group.level }}: {{ group.group }}</p>
+                <a href="/learn/{{ group.id }}">Learn</a>
+                <a href="/practice/{{ group.id }}">Practice</a>
+                <a href="/">Test</a>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock content %}
