@@ -1,6 +1,7 @@
+const getGroupId = document.querySelector("#jsonData")
+const groupId = JSON.parse(getGroupId.getAttribute("data-json"))
+const url = `/api/practice/${groupId}`
 let cardData
-
-const url = '/api/practice?group=1'
 
 const initialize = async () => {
     await getData()
@@ -22,6 +23,10 @@ const card = () => {
 
     sentEl.innerText = cardData[index]["sentence_eng"]
 
+    playBtn.addEventListener("click", () => {
+        playSentence(cardData[index]["sentence_spa"])
+    })
+
     goBtn.addEventListener("click", () => {
         if (index < cardData.length - 1) {
             index += 1
@@ -30,6 +35,25 @@ const card = () => {
     })
 }
 
+const playSentence = (text, speed) => {
+    const speech = new SpeechSynthesisUtterance
+    if(speechSynthesis.speaking) return
+    speech.lang = "es-ES"
+    speech.text = text
+    speech.rate = speed | 1
+    speechSynthesis.speak(speech)
+}
 
+id("openBtn").addEventListener("click", () => {
+    if (id("fullListBox").className === "closed") {
+        id("fullListBox").classList = "opened"
+    } else {
+       id("fullListBox").classList = "closed"
+    }
+})
+
+function id(element) {
+    return document.getElementById(element)
+}
 
 initialize()

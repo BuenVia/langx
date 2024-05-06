@@ -29,7 +29,7 @@ class Group(models.Model):
 class Sentence(models.Model):
     sentence_eng = models.CharField(max_length=255, unique=True)
     sentence_spa = models.CharField(max_length=255, unique=True)
-    date_create = models.DateTimeField(auto_now_add=True)
+    date_created = models.DateTimeField(auto_now_add=True)
     group = models.ForeignKey(Group, on_delete=models.CASCADE)
 
     def __str__(self):

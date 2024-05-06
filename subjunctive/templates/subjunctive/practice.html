@@ -8,19 +8,23 @@
     </div>
 
     <div>
-        <h3 class="sent-el" id="sentEl">Sentence</h3>
+        <h3 class="sent-el" id="sentEl"></h3>
         <button class="play-btn" id="playBtn">Play</button>
         <textarea class="sent-text" id="sentText"></textarea>
         <button class="go-btn" id="goBtn">Go</button>
     </div>
 
-    <div>
-        {% for sentence in sentences %}
-            <p>{{ sentence.sentence_spa }}</p>
-        {% endfor %}
+    <div class="full__list__container">
+        <span class="open__btn" id="openBtn">+</span>
+        <div class="closed" id="fullListBox">
+            {% for sentence in sentences %}
+                <p>{{ sentence.sentence_spa }}</p>
+            {% endfor %}
+        </div>
     </div>
 
 {% load static %}
+<div style="display: none" id="jsonData" data-json="{{ group.id }}"></div>
 <script src="{% static 'subjunctive/js/practice.js' %}" defer></script>
 
 

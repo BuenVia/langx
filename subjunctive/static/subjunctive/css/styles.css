@@ -23,7 +23,7 @@ body {
 }
 
 .home__link__btn:hover {
-    transition: .5;
+    transition: .5s;
     background-color: #ccc;
     color: #222;
 }
@@ -34,4 +34,48 @@ body {
     background-color: #444;
     border: none;
     border-radius: 10px;
+}
+
+.full__list__container {
+    margin: 1em 0;
+    padding: .5em;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.open__btn {
+    padding: .25em .75em;
+    border: none;
+    border-radius: 10px;
+    background-color: #ccc;
+    color: #222;
+    cursor: pointer;
+}
+
+.open__btn:hover {
+    transition: .5s;
+    background-color: #ddd;
+    color: #333;
+}
+
+.full__list__box {
+    /* display: none; */
+}
+
+.closed {
+    overflow: hidden;
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    transition: all 0.5s ease;
+    will-change: transform
+}
+
+.open {
+    height: 500px;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    will-change: transform;
 }
