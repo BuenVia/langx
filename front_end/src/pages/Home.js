@@ -17,17 +17,19 @@ const Home = () => {
         getConcepts()
     }, [])
 
-    return (<div>
+    return (<div className="container p-3">
         {concepts.map(concept => {
             return (
-                <div className="card">
-                    <div className="card-head">
+                <div className="card ">
+                    <div className="card-header">
                         <h4>{concept.name}</h4>
                     </div>
                     <div className="card-body">
                         <p>Description of the concept</p>
-                        <a href={`blogs/${concept.id}`}>Learn</a>
-                        <a href={`flash/${concept.id}`}>Practice</a>
+                        <div className="btn-container">
+                            <a className="btn btn-success" href={`blogs/${concept.id}`}>Learn</a>
+                            <a className="btn btn-primary" href={`flash/${concept.id}`}>Practice</a>
+                        </div>
                     </div>
 
 
