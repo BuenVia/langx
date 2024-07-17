@@ -19,7 +19,20 @@ const Home = () => {
 
     return (<div>
         {concepts.map(concept => {
-            return <p>{concept.name}</p>
+            return (
+                <div className="card">
+                    <div className="card-head">
+                        <h4>{concept.name}</h4>
+                    </div>
+                    <div className="card-body">
+                        <p>Description of the concept</p>
+                        <a href={`blogs/${concept.id}`}>Learn</a>
+                        <a href={`flash/${concept.id}`}>Practice</a>
+                    </div>
+
+
+                </div>
+            )
         })}
     </div>);
   };
