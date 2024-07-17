@@ -3,32 +3,32 @@ import axios from 'axios'
 
 const Home = () => {
 
-    const [concepts, setConcepts] = useState([])
+    const [blogs, setBlogs] = useState([])
 
     useEffect(() => {
-        const url = "http://127.0.0.1:8000/api"
-        const getConcepts = async () => {
+        const url = "http://127.0.0.1:8000/api/blogs/"
+        const getBlogs = async () => {
             try {
-                await axios.get(url).then(res => setConcepts(res.data))
+                await axios.get(url).then(res => setBlogs(res.data))
             } catch (error) {
                 console.error(error);
             }
         }
-        getConcepts()
+        getBlogs()
     }, [])
 
     return (<div className="container p-3">
-        {concepts.map(concept => {
+        {blogs.map(blog => {
             return (
-                <div className="card ">
+                <div key={blog.id} className="card">
                     <div className="card-header">
-                        <h4>{concept.name}</h4>
+                        <h4>{blog.name}</h4>
                     </div>
                     <div className="card-body">
                         <p>Description of the concept</p>
                         <div className="btn-container">
-                            <a className="btn btn-success" href={`blogs/${concept.id}`}>Learn</a>
-                            <a className="btn btn-primary" href={`flash/${concept.id}`}>Practice</a>
+                            <a className="btn btn-success" href={`blogs/${blog.id}`}>Learn</a>
+                            <a className="btn btn-primary" href={`flash/${blog.id}`}>Practice</a>
                         </div>
                     </div>
 

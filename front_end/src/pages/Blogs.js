@@ -1,5 +1,38 @@
+import { useEffect, useState } from "react";
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+import axios from 'axios'
+
 const Blogs = () => {
-    return <h1>Blog Articles</h1>;
+  
+  const [blog, setBlog] = useState({})
+
+  useEffect(() => {
+    const pathname = window.location.pathname
+      const url = `http://127.0.0.1:8000/api${pathname}`
+      const getBlog = async () => {
+          try {
+              await axios.get(url).then(res => setBlog(res.data[0]))
+          } catch (error) {
+              console.error(error);
+          }
+      }
+      getBlog()
+  }, [])
+
+    return (
+      <div className="container">
+        <div className="card">
+          <div className="card-header">
+            <h3>{blog.name}</h3>
+            <p>By {blog.author}</p>
+          </div>
+          <div className="card-body">
+            <ReactMarkdown children={blog.body} remarkPlugins={[remarkGfm]} />
+          </div>
+        </div>
+      </div>
+    );
   };
   
   export default Blogs;

@@ -5,10 +5,10 @@
 }
 
 .container {
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 1em;
+  gap: 1em; */
 }
 
 .card {
