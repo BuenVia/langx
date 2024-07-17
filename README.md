@@ -1,1 +1,3 @@
-# langx
+# LangX
+
+- [Proposal](/Proposal.md)
