@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import Blogs from "./pages/Blogs";
-import Flash from "./pages/Flash";
+import Tests from "./components/Tests";
 import NoPage from "./pages/NoPage";
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="blogs/:id" element={<Blogs />} />
-          <Route path="flash/:id" element={<Flash />} />
+          <Route path="flash/:id" element={<Tests />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

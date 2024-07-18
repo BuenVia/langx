@@ -28,8 +28,9 @@ class GrammarBlogViewSet(APIView):
 ### TESTS
     
 class GrammarTestSectionViewSet(APIView):
-    def get(self, request, *args, **kwargs):
-        gts = GrammarTestSection.objects.all()
+    def get(self, request, id, *args, **kwargs):
+        gts = GrammarTestSection.objects.filter(blog=id)
+        print(gts)
         serializer = GrammarTestSectionSerializer(gts, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 

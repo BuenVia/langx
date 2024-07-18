@@ -28,7 +28,7 @@ const Home = () => {
                         <p>Description of the concept</p>
                         <div className="btn-container">
                             <a className="btn btn-success" href={`blogs/${blog.id}`}>Learn</a>
-                            <a className="btn btn-primary" href={`flash/${blog.id}`}>Practice</a>
+                            {/* <a className="btn btn-primary" href={`flash/${blog.id}`}>Practice</a> */}
                         </div>
                     </div>
 

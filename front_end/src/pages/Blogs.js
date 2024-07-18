@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import axios from 'axios'
-import Flash from "./Flash";
+import Tests from "../components/Tests";
 
 const Blogs = () => {
   
+  const [loading, setLoading] = useState(false)
   const [blog, setBlog] = useState({})
 
   useEffect(() => {
@@ -14,6 +15,7 @@ const Blogs = () => {
     const getBlog = async () => {
       try {
         await axios.get(url).then(res => setBlog(res.data[0]))
+        setLoading(true)
       } catch (error) {
           console.error(error);
       }
@@ -37,7 +39,7 @@ const Blogs = () => {
           <h3>Tests</h3>
         </div>
         <div className="card-body">
-          <Flash testId={blog.id} />
+          {loading ? <Tests testId={blog.id} /> : null}
           </div>
         </div>
       </div>
