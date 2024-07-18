@@ -19,6 +19,11 @@
   margin: 0 .25em 0 0;
 }
 
-.btn-container {
-  
+tr, td {
+  padding: .5em !important;
+  border: 1px solid black !important;
+}
+
+h3 {
+  color: red;
 }
