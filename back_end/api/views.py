@@ -4,8 +4,8 @@ from rest_framework import status #type: ignore
 from rest_framework.views import APIView #type: ignore
 from rest_framework.response import Response #type: ignore
 
-from .models import GrammarConcept, GrammarBlog
-from .serializer import GrammarConceptSerializer, GrammarBlogSerializer
+from .models import GrammarConcept, GrammarBlog, GrammarTestSection, GrammarTest
+from .serializer import GrammarConceptSerializer, GrammarBlogSerializer, GrammarTestSectionSerializer, GrammarTestSerializer
 
 # Create your views here.
 def index(request):
@@ -17,6 +17,8 @@ class GrammarConceptsViewSet(APIView):
         serializer = GrammarConceptSerializer(gcs, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
+### BLOGS
+
 class GrammarBlogsViewSet(APIView):
     def get(self, request, *args, **kwargs):
         gbs = GrammarBlog.objects.all()
@@ -27,6 +29,24 @@ class GrammarBlogViewSet(APIView):
     def get(self, request, id, *args, **kwargs):
         gbs = GrammarBlog.objects.filter(id=id)
         serializer = GrammarBlogSerializer(gbs, many=True)
-        # print(serializer)
         return Response(serializer.data, status=status.HTTP_200_OK)
-        return HttpResponse(args)
+    
+### TESTS
+    
+class GrammarTestSectionViewSet(APIView):
+    def get(self, request, *args, **kwargs):
+        gts = GrammarTestSection.objects.all()
+        serializer = GrammarTestSectionSerializer(gts, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+class GrammarTestsViewSet(APIView):
+    def get(self, request, id, *args, **kwargs):
+        gt = GrammarTest.objects.all()
+        serializer = GrammarTestSerializer(gt, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+class GrammarTestViewSet(APIView):
+    def get(self, request, id, *args, **kwargs):
+        gt = GrammarTest.objects.filter(test_section=id)
+        serializer = GrammarTestSerializer(gt, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
