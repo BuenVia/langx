@@ -1,0 +1,10 @@
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE IF NOT EXISTS "GrammarConcepts" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(90) NOT NULL);
+INSERT INTO GrammarConcepts VALUES(1,'Nouns');
+INSERT INTO GrammarConcepts VALUES(2,'Articles');
+INSERT INTO GrammarConcepts VALUES(3,'Pronouns');
+INSERT INTO GrammarConcepts VALUES(4,'Adjectives');
+INSERT INTO GrammarConcepts VALUES(5,'Adverbs');
+INSERT INTO GrammarConcepts VALUES(6,'Verbs');
+COMMIT;

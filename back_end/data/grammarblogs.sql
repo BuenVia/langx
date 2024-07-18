@@ -1,0 +1,9 @@
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE IF NOT EXISTS "GrammarBlogs" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(90) NOT NULL, "author" varchar(90) NOT NULL, "body" text NOT NULL, "date_created" datetime NOT NULL, "concept_id" bigint NOT NULL REFERENCES "GrammarConcepts" ("id") DEFERRABLE INITIALLY DEFERRED);
+INSERT INTO GrammarBlogs VALUES(1,'Nouns','Matt Clifford',replace(replace('Nouns can be masculine or femenine\r\n\r\n### Singular\r\n\r\nMasculine | Femenine\r\n---|---\r\nle chat | la souris\r\nle livre | la pomme\r\n\r\n### Plural\r\n\r\nSingular | Plural\r\n---|---\r\nle chaise | les chaises\r\nune chaise | des chaises','\r',char(13)),'\n',char(10)),'2024-07-17 19:57:20.337682',1);
+INSERT INTO GrammarBlogs VALUES(2,'Articles','Matt Clifford',replace(replace('## Definite articles\r\n\r\n### Singular\r\n\r\n- Le (masc)\r\n- La (fem)\r\n- L'' (m + f - if word begins with a, e, i ,o, u and some h)\r\n\r\n### Plural\r\n\r\n- Les\r\n\r\n## Indefinite articles\r\n\r\n### Singular\r\n\r\n- Un (masc)\r\n- Une (fem)\r\n\r\n### Plural\r\n\r\n- Des (m + f)\r\n\r\n## Definite articles + ''a'' or ''de''\r\n\r\n X| le | la | l'' | les\r\n---|---|---|---|--- \r\na + | au | a la | a l'' | aux\r\nde + | du | de la | de l'' | des\r\n\r\n## Partitive articles - ''some'' or ''any''\r\n\r\nmasc sing | fem sing | vowel with l'' | plural (m+f)\r\n---|---|---|---\r\ndu | de la | de l'' | des','\r',char(13)),'\n',char(10)),'2024-07-17 20:33:30.361351',2);
+INSERT INTO GrammarBlogs VALUES(3,'Adjectives','Matt Clifford','TBD','2024-07-17 20:34:00.643009',4);
+INSERT INTO GrammarBlogs VALUES(4,'Adverbs','Matt Clifford','TBD','2024-07-17 20:34:12.519419',5);
+INSERT INTO GrammarBlogs VALUES(5,'Verbs','Matt Clifford','TBD','2024-07-17 20:34:24.879633',6);
+COMMIT;
