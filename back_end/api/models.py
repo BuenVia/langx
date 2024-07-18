@@ -1,21 +1,10 @@
 from django.db import models
 
-# Create your models here.
-class GrammarConcept(models.Model):
-    name = models.CharField(max_length=90)
-
-    class Meta:
-        db_table = "GrammarConcepts"
-
-    def __str__(self) -> str:
-        return self.name
-
 class GrammarBlog(models.Model):
     name = models.CharField(max_length=90)
     author = models.CharField(max_length=90)
     body = models.TextField()
     date_created = models.DateTimeField(auto_now_add=True)
-    concept = models.ForeignKey(GrammarConcept, on_delete=models.CASCADE)
     
     class Meta:
         db_table = "GrammarBlogs"
@@ -25,6 +14,7 @@ class GrammarBlog(models.Model):
 
 class GrammarTestSection(models.Model):
     name = models.CharField(max_length=10)
+    blog = models.ForeignKey(GrammarBlog, on_delete=models.CASCADE)
     
     class Meta:
         db_table = "grammartestsection"
@@ -41,7 +31,6 @@ class GrammarTest(models.Model):
     option_two = models.CharField(max_length=255, blank=True)
     option_three = models.CharField(max_length=255, blank=True)
     feedback = models.CharField(max_length=255, blank=True)
-    concept = models.ForeignKey(GrammarConcept, on_delete=models.CASCADE)
     test_section = models.ForeignKey(GrammarTestSection, on_delete=models.CASCADE)
 
     class Meta:

@@ -4,19 +4,13 @@ from rest_framework import status #type: ignore
 from rest_framework.views import APIView #type: ignore
 from rest_framework.response import Response #type: ignore
 
-from .models import GrammarConcept, GrammarBlog, GrammarTestSection, GrammarTest
-from .serializer import GrammarConceptSerializer, GrammarBlogSerializer, GrammarTestSectionSerializer, GrammarTestSerializer
+from .models import GrammarBlog, GrammarTestSection, GrammarTest
+from .serializer import GrammarBlogSerializer, GrammarTestSectionSerializer, GrammarTestSerializer
 
 # Create your views here.
 def index(request):
     return HttpResponse("Hello World!")
 
-class GrammarConceptsViewSet(APIView):
-    def get(self, request, *args, **kwargs):
-        gcs = GrammarConcept.objects.all()
-        serializer = GrammarConceptSerializer(gcs, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
-    
 ### BLOGS
 
 class GrammarBlogsViewSet(APIView):
