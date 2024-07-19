@@ -10,7 +10,6 @@ const TypeThree = (props) => {
     }
 
     const handleGo = () => {
-        console.log(answer);
         const res = answer === props.testObj.answer ? true : false;
         props.checkAns(res)
     }
