@@ -4,6 +4,7 @@ import TestCard from './TestCard'
 
 const Tests = (props) => {
 
+  const [hideTests, setHideTests] = useState(false)
   const [testList, setTestList] = useState([])
   const [questionList, setQuestionList] = useState([])
 
@@ -21,10 +22,11 @@ const Tests = (props) => {
   }, [props.testId])
 
   // Get the questions for selected test section
-  const getTestList = async (id) => {
+  const getQuestionList = async (id) => {
     const url = `http://127.0.0.1:8000/api/questions/${id}`
       try {
           await axios.get(url).then(res => setQuestionList(res.data))
+          setHideTests(true)
       } catch (error) {
           console.error(error);
       }
@@ -32,16 +34,16 @@ const Tests = (props) => {
 
   const handleClick = (e) => {
     const {value} = e.target
-    getTestList(value)
+    getQuestionList(value)
   }
 
     return (
       <>
-        <div>
+        {!hideTests ? <div>
           {testList.map(test => {
             return <button key={test.id} value={test.id} className="btn btn-info" onClick={handleClick}>{test.name}</button>
           })}
-        </div>
+        </div>: null}
         <div>
           {questionList.length > 0 ? <TestCard testData={questionList} /> : "Please select a test"}
         </div>

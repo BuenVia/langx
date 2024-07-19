@@ -12,23 +12,24 @@ const TestCard = (props) => {
     const [questionIndex, setQuestionIndex] = useState(0)
     const [isActive, setIsActive] = useState(true)
 
-    const handleGo = () => {
+    const handleGo = (ans) => {
+        console.log(ans);
         setQuestionIndex((preVal) => {
-            console.log(preVal + 1, questions.length - 1);
             return preVal < questions.length - 1? preVal + 1 : setIsActive(false);
         })
     }
 
+
     const handleInput = (testObj) => {
         const type = testObj.test_type
         if (type === 1) {
-            return <TypeOne testObj={testObj} />
+            return <TypeOne checkAns={handleGo} testObj={testObj} />
         } else if (type === 2) {
-            return <TypeTwo testObj={testObj} />
+            return <TypeTwo checkAns={handleGo} testObj={testObj} />
         } else if (type === 3) {
-            return <TypeThree testObj={testObj} />
+            return <TypeThree checkAns={handleGo} testObj={testObj} />
         } else if (type === 4) {
-            return <TypeFour testObj={testObj} />
+            return <TypeFour checkAns={handleGo} testObj={testObj} />
         } else {
             return "Error"
         }
@@ -42,7 +43,6 @@ const TestCard = (props) => {
             :
             <Finish />
         }
-        {isActive ? <button onClick={handleGo}>Go</button> : <button>Finish</button> }
         </>
     )
 }
