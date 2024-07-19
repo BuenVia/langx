@@ -18,6 +18,13 @@ const Home = () => {
     }, [])
 
     return (<div className="container p-3">
+        <div className="row landing-header">
+            <h1>LangX</h1>
+            <p>Welcome to Language Learning</p>
+        </div>
+        <div className="row">
+
+
         {blogs.map(blog => {
             return (
                 <div key={blog.id} className="card">
@@ -36,6 +43,7 @@ const Home = () => {
                 </div>
             )
         })}
+        </div>
     </div>);
   };
   
