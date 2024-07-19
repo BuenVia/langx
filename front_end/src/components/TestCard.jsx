@@ -1,40 +1,48 @@
 import { useState } from "react";
+import TypeOne from "./TypeOne";
+import TypeTwo from "./TypeTwo";
+import TypeThree from "./TypeThree";
+import TypeFour from "./TypeFour";
+import Finish from "./Finish";
 
 
 const TestCard = (props) => {
 
     const [questions] = useState(props.testData)
     const [questionIndex, setQuestionIndex] = useState(0)
+    const [isActive, setIsActive] = useState(true)
 
     const handleGo = () => {
         setQuestionIndex((preVal) => {
-            return preVal < questions.length ? preVal + 1 : null;
+            console.log(preVal + 1, questions.length - 1);
+            return preVal < questions.length - 1? preVal + 1 : setIsActive(false);
         })
     }
 
     const handleInput = (testObj) => {
         const type = testObj.test_type
         if (type === 1) {
-            return <input type="text"></input>
+            return <TypeOne testObj={testObj} />
         } else if (type === 2) {
-            const opt_list = [testObj.option_one, testObj.opt_two, testObj.opt_three]
-            opt_list.map(opt=> {
-                console.log(opt);
-                return <button value={false}>{opt}</button>
-            })
+            return <TypeTwo testObj={testObj} />
         } else if (type === 3) {
-            return "3"
+            return <TypeThree testObj={testObj} />
+        } else if (type === 4) {
+            return <TypeFour testObj={testObj} />
         } else {
-            return "error"
+            return "Error"
         }
     }
 
+
     return (
         <>
-            {questions[questionIndex].instruction ? questions[questionIndex].instruction : null}
-            <p>{questions[questionIndex].question}</p>
-            {handleInput(questions[questionIndex])}
-            <button onClick={handleGo}>Go</button>
+            {isActive ? 
+            handleInput(questions[questionIndex])
+            :
+            <Finish />
+        }
+        {isActive ? <button onClick={handleGo}>Go</button> : <button>Finish</button> }
         </>
     )
 }
