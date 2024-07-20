@@ -17,34 +17,24 @@ const Home = () => {
         getBlogs()
     }, [])
 
-    return (<div className="container p-3">
-        <div className="row landing-header">
-            <h1>LangX</h1>
-            <p>Welcome to Language Learning</p>
-        </div>
-        <div className="row">
+    return (
+        <div className="container p-3">
+            <header className="header">
+                <h1 className="title">LangX</h1>
+                <p className="tagline">"Unlock the World with Words"</p>
+            </header>
 
-
-        {blogs.map(blog => {
-            return (
-                <div key={blog.id} className="card">
-                    <div className="card-header">
-                        <h4>{blog.name}</h4>
-                    </div>
-                    <div className="card-body">
-                        <p>Description of the concept</p>
-                        <div className="btn-container">
-                            <a className="btn btn-success" href={`blogs/${blog.id}`}>Learn</a>
-                            {/* <a className="btn btn-primary" href={`flash/${blog.id}`}>Practice</a> */}
+            <div className="sections">
+                {blogs.map(blog => {
+                    return (
+                        <div key={blog.id} className="card">
+                            <h2>{blog.name}</h2>
+                            <a className="btn btn-success" href={`blogs/${blog.id}`}><button className="learn-more">Learn</button></a>
                         </div>
-                    </div>
-
-
-                </div>
-            )
-        })}
-        </div>
-    </div>);
+                    )
+                })}
+            </div>
+        </div>);
   };
   
   export default Home;
