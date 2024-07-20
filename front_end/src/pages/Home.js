@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from 'axios'
+import Sidebar from "../components/Sidebar";
 
 const Home = () => {
 
@@ -24,17 +25,24 @@ const Home = () => {
                 <p className="tagline">"Unlock the World with Words"</p>
             </header>
 
-            <div className="sections">
-                {blogs.map(blog => {
-                    return (
-                        <div key={blog.id} className="card">
-                            <h2>{blog.name}</h2>
-                            <a className="btn btn-success" href={`blogs/${blog.id}`}><button className="learn-more">Learn</button></a>
-                        </div>
-                    )
-                })}
+            <div className="content">
+
+                <Sidebar />
+
+                <div className="main-section">
+                    {blogs.map(blog => {
+                        return (
+                            <div key={blog.id} className="card">
+                                <h2>{blog.name}</h2>
+                                <p>words for people or things...</p>
+                                <a className="btn btn-success" href={`blogs/${blog.id}`}><button className="learn-more">Learn</button></a>
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
-        </div>);
+        </div>
+    );
   };
   
   export default Home;
