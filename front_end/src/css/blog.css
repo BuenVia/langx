@@ -1,0 +1,11 @@
+.blog__container {
+    padding: 1em;
+    display: flex;
+    gap: 1em;
+}
+
+.card__blog {
+    padding: .5em;
+    border: 1px solid var(--border-clr);
+    border-radius: 10px;
+}

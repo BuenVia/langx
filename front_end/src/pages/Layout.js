@@ -1,4 +1,5 @@
 import { Outlet, Link } from "react-router-dom";
+import '../css/layout.css';
 
 const Layout = () => {
   return (
@@ -18,6 +19,10 @@ const Layout = () => {
           <Outlet />
         </div>
       </main>
+
+      <footer className="footer">
+        <p>&copy; 2024 LangX. All rights reserved.</p>
+      </footer>
         
     </>
   )

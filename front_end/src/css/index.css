@@ -1,0 +1,29 @@
+:root {
+  --nav-bg: #3b3b98;
+  --nav-txt: #ddd;
+  --body-bg: #222;
+  --body-txt: #ddd;
+  --card-bg: #333;
+  --border-clr: #3b3b98;
+}
+
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* General styles */
+body, html, #root, .App {
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: var(--body-bg);
+  color: var(--body-txt);
+}
+
+.App {
+  text-align: center;
+  padding: 20px;
+}

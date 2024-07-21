@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import axios from 'axios'
+import '../css/blog.css';
 import Tests from "../components/Tests";
 
 const Blogs = () => {
@@ -24,24 +25,19 @@ const Blogs = () => {
   }, [])
 
     return (
-      <div className="container">
-        <div className="card">
-          <div className="card-header">
+      <div className="blog__container">
+
+        <div className="card__blog">
             <h3>{blog.name}</h3>
             <p>By {blog.author}</p>
-          </div>
-          <div className="card-body">
             <ReactMarkdown children={blog.body} remarkPlugins={[remarkGfm]} />
-          </div>
         </div>
-        <div className="card">
-        <div className="card-header">
+
+        <div className="card__blog">
           <h3>Tests</h3>
-        </div>
-        <div className="card-body">
           {loading ? <Tests testId={blog.id} /> : null}
-          </div>
         </div>
+
       </div>
     );
   };
