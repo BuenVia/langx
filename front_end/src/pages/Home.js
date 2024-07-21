@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from 'axios'
 import '../css/home.css';
 import Sidebar from "../components/Sidebar";
+import TestButtons from "../components/TestButtons";
 
 const Home = () => {
 
@@ -36,7 +37,7 @@ const Home = () => {
                             <div key={blog.id} className="card">
                                 <h2>{blog.name}</h2>
                                 <p>words for people or things...</p>
-                                <a className="btn btn-success" href={`blogs/${blog.id}`}><button className="learn-more">Learn</button></a>
+                                <TestButtons testId={blog.id} />
                             </div>
                         )
                     })}

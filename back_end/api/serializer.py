@@ -1,4 +1,4 @@
-from .models import GrammarBlog, GrammarTest, GrammarTestSection
+from .models import GrammarBlog, GrammarTest, GrammarTestSection, GrammarAssessment
 from rest_framework import serializers # type: ignore
 
 
@@ -6,6 +6,11 @@ class GrammarBlogSerializer(serializers.ModelSerializer):
     class Meta:
         model = GrammarBlog
         fields = ["id", "name", "author", "body", "date_created"]
+
+class GrammarAssessmentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GrammarAssessment
+        fields = ['id', 'question', 'answer', 'blog']
 
 class GrammarTestSectionSerializer(serializers.ModelSerializer):
     class Meta:

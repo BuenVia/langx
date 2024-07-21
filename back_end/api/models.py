@@ -11,6 +11,17 @@ class GrammarBlog(models.Model):
 
     def __str__(self) -> str:
         return f"Blog: {self.name}"
+    
+class GrammarAssessment(models.Model):
+    question = models.CharField(max_length=255)
+    answer = models.CharField(max_length=45)
+    blog = models.ForeignKey(GrammarBlog, on_delete=models.CASCADE)
+    
+    class Meta:
+        db_table = "grammarassessment"
+
+    def __str__(self) -> str:
+        return self.question
 
 class GrammarTestSection(models.Model):
     name = models.CharField(max_length=10)

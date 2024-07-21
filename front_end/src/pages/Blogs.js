@@ -3,7 +3,7 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import axios from 'axios'
 import '../css/blog.css';
-import Tests from "../components/Tests";
+import Assessment from "../components/Assessment";
 
 const Blogs = () => {
   
@@ -35,7 +35,7 @@ const Blogs = () => {
 
         <div className="card__blog">
           <h3>Tests</h3>
-          {loading ? <Tests testId={blog.id} /> : null}
+          {loading ? <Assessment assessId={blog.id} /> : null}
         </div>
 
       </div>

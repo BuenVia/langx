@@ -13,7 +13,6 @@ const TestCard = (props) => {
     const [isActive, setIsActive] = useState(true)
 
     const handleGo = (ans) => {
-        console.log(ans);
         setQuestionIndex((preVal) => {
             return preVal < questions.length - 1? preVal + 1 : setIsActive(false);
         })
