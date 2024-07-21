@@ -28,13 +28,15 @@ const Blogs = () => {
       <div className="blog__container">
 
         <div className="card__blog">
-            <h3>{blog.name}</h3>
-            <p>By {blog.author}</p>
-            <ReactMarkdown children={blog.body} remarkPlugins={[remarkGfm]} />
+            <h1 className="blog__title">{blog.name}</h1>
+            {/* <p>By {blog.author}</p> */}
+            <div className="blog__body">
+              <ReactMarkdown children={blog.body} remarkPlugins={[remarkGfm]} />
+            </div>
         </div>
 
-        <div className="card__blog">
-          <h3>Tests</h3>
+        <div className="card__blog card__assessment">
+          <h3>Test yourself with different {blog.name}</h3>
           {loading ? <Assessment assessId={blog.id} /> : null}
         </div>
 

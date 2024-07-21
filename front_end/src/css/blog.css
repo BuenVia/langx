@@ -6,7 +6,92 @@
 }
 
 .card__blog {
-    padding: .5em;
+    padding: 2em;
+    background-color: var(--blog-card-clr);
     border: 1px solid var(--border-clr);
     border-radius: 10px;
+}
+
+/*BLOG BODY*/
+.blog__title {
+    margin-bottom: 1em;
+    text-decoration: underline;
+}
+
+.blog__body {
+
+    width: fit-content;
+}
+
+.blog__body h3 {
+    margin: 1em 0;    
+}
+.blog__body hr {
+    margin: 1em 0;    
+}
+
+.blog__body p {
+    margin: .5em 0;
+}
+
+.blog__body table{
+    margin: 1em 0;
+    border-collapse: collapse;
+}
+
+.blog__body table thead{
+    text-decoration: underline;
+}
+.blog__body table td, th{
+    padding: 10px;
+    border: 1px solid #777;
+    border-collapse: collapse;
+}
+
+/* ASSESSMENT CARD */
+.card__assessment {
+    background-color: #777;
+}
+.assessment__form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: auto;
+    padding: 1em 0;
+}
+
+.assessment__question {
+    margin: 1em 0;
+    font-style: italic;
+}
+
+.assessment__input {
+    margin: .5em;
+    padding: .5em;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid var(--body-txt);
+    text-align: center;
+    color: var(--body-txt);
+    outline: none;
+}
+
+.assessment__btn {
+    margin: auto;
+    padding: .5em;
+    width: fit-content;
+    background-color: var(--go-btn);
+    color: var(--body-txt);
+    border: none;
+    border-radius: 6px;
+    transition: .5s;
+    cursor: pointer;
+}
+.assessment__btn:hover {
+    transform: scale(1.05);
+}
+
+.assessment__incorrect {
+    color: red;
+    border-bottom: 2px sold red;
 }

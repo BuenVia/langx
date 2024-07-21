@@ -5,6 +5,8 @@
   --body-txt: #ddd;
   --card-bg: #333;
   --border-clr: #3b3b98;
+  --go-btn: rgb(38, 139, 38);
+  --blog-card-clr: #444;
 }
 
 *, *::after, *::before {

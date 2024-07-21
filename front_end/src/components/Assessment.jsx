@@ -7,6 +7,8 @@ const Assessment = (props) => {
     const [loading, setLoading] = useState(false)
     const [questionIndex, setQuestionIndex] = useState(0)
     const [isActive, setIsActive] = useState(true)
+    const [answer, setAnswer] = useState("")
+    const [incorrect, setIncorrect] = useState("")
 
     useEffect(() => {
         const url = `http://127.0.0.1:8000/api/blogs/assess/${props.assessId}`
@@ -21,18 +23,33 @@ const Assessment = (props) => {
         getBlog()
       }, [])
 
+      const handleChange = (e) => {
+        const { value } = e.target
+        setAnswer(value)
+    }
+
       const handleCheck = () => {
-        setQuestionIndex((preVal) => {
-            return preVal < assessment.length - 1? preVal + 1 : setIsActive(false);
-        })
+        if (answer === assessment[questionIndex].answer) {
+          setIncorrect("lightgreen")
+          setTimeout(() => {
+            setQuestionIndex((preVal) => {
+              return preVal < assessment.length - 1? preVal + 1 : setIsActive(false);
+            })
+            setAnswer("")
+            setIncorrect("")
+          }, 1000)
+        } else {
+          setIncorrect("red")
+          console.log("incorrect answer");
+        }
       }
 
       const assessmentForm = () => {
         return (
-            <div>
-                <p>{isActive ? assessment[questionIndex].question : null}</p>
-                {isActive ? <input type="text" /> : null}
-                {isActive ? <button onClick={handleCheck}>Submit</button> : null }
+            <div className="assessment__form">
+                {isActive ? <p className="assessment__question">{assessment[questionIndex].question}</p> : "Well done!"}
+                {isActive ? <input type="text" style={{color: incorrect}} onChange={handleChange} className="assessment__input" value={answer} autoFocus required/> : null}
+                {isActive ? <button className="assessment__btn" onClick={handleCheck}>Submit</button> : <a href="/" className="learn-more">Home</a> }
             </div>
         )
       }
