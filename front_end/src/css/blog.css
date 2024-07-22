@@ -48,6 +48,15 @@
     border-collapse: collapse;
 }
 
+.blog__body ul {
+    margin: 2em;
+}
+
+.blog__body li {
+    margin: .25em 0;
+    list-style: square;
+}
+
 /* ASSESSMENT CARD */
 .card__assessment {
     background-color: #777;

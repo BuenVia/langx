@@ -89,3 +89,63 @@
     transition: .5s;
     color: lightgreen;
 }
+
+/* FINISH */
+.finish__container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.finish__card {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.finnis__item {
+    padding: 1em;
+    margin: auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+}
+
+.finish__item__correct {
+    background-color: rgb(125, 244, 125);
+    color: rgb(17, 72, 17);
+}
+
+.finish__item__incorrect {
+    background-color: rgb(219, 63, 63);
+    color: rgb(251, 165, 165);
+}
+
+.finish__question {
+    margin: .5em 0;
+    font-size: 18px;
+}
+
+.finish__answer {
+    padding: .25em;
+    border: 1px solid rgb(255, 211, 211);
+    border-radius: 6px;
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.finish__btn {
+    padding: .75em;
+    margin: 2em auto;
+    width: fit-content;
+    border-radius: 6px;
+    background-color: var(--nav-bg);
+    color: var(--body-txt);
+    text-decoration: none;
+    cursor: pointer;
+    opacity: .8;
+}
+
+.finish__btn:hover {
+    transition: .5s;
+    opacity: 1;
+}
