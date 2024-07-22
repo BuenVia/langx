@@ -11,9 +11,21 @@ const TestCard = (props) => {
 
     const [questions] = useState(props.testData)
     const [questionIndex, setQuestionIndex] = useState(0)
+    const [answers, setAnswers] = useState([])
     const [isActive, setIsActive] = useState(true)
 
     const handleGo = (ans) => {
+        if (!ans) {
+            questions[questionIndex].result = "false"
+        } else {
+            questions[questionIndex].result = "true"
+        }
+        setAnswers((prevVals) => {
+            return [
+                ...prevVals,
+                questions[questionIndex]
+            ]
+        })
         setQuestionIndex((preVal) => {
             return preVal < questions.length - 1? preVal + 1 : setIsActive(false);
         })
@@ -41,7 +53,8 @@ const TestCard = (props) => {
             {isActive ? 
             handleInput(questions[questionIndex])
             :
-            <Finish />
+            // console.log(JSON.stringify(answers))
+            <Finish results={answers} />
         }
         </div>
     )

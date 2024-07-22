@@ -29,6 +29,13 @@
     outline: none;
 }
 
+.test__input__empty {
+    border-color: red;
+}
+.test__input__empty::placeholder {
+    color: red;
+}
+
 .test__btn__container {
     display: flex;
     flex-direction: row;
