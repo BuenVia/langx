@@ -25,10 +25,10 @@ const TypeFour = (props) => {
     }
 
     return (<>
-        {props.testObj.instruction ? <p>{props.testObj.instruction}</p> : null}
-        <button onClick={playAudio}>Play audio</button>
-        <textarea name="userAns" onChange={handleChange}></textarea>
-        <button onClick={handleGo}>Go</button>
+        {props.testObj.instruction ? <p className="test__instruction">{props.testObj.instruction}</p> : null}
+        <button className="test__audio" onClick={playAudio}>Play audio <i className="fas fa-volume-up"></i></button>
+        <textarea className="test__input" name="userAns" onChange={handleChange}></textarea>
+        <button className="test__btn" onClick={handleGo}>Go</button>
     </>)
 }
 

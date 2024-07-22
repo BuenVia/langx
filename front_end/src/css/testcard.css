@@ -23,8 +23,33 @@
     min-height: 200px;
     resize: none;
     background-color: #555;
+    color: var(--body-txt);
     border: 1px solid #eee;
     border-radius: 10px;
+    outline: none;
+}
+
+.test__btn__container {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+.test__ans__btn {
+    margin: 1em 0;
+    padding: .5em;
+    font-size: 24px;
+    background-color: var(--nav-bg);
+    color: var(--body-txt);
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    opacity: .8;
+}
+
+.test__ans__btn:hover {
+    transition: .5s;
+    opacity: 1;
 }
 
 .test__btn {
@@ -41,4 +66,19 @@
 .test__btn:hover {
     transition: .5s;
     background-color: #999;
+}
+
+.test__audio {
+    width: fit-content;
+    padding: 1em 0;
+    background-color: transparent;
+    color: var(--body-txt);
+    border: none;
+    font-size: 36px;
+    cursor: pointer;
+}
+
+.test__audio:hover {
+    transition: .5s;
+    color: lightgreen;
 }

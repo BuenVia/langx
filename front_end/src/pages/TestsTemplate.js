@@ -22,8 +22,6 @@ const TestsTemplate = () => {
         getQuestionList()
     }, [])
 
-    console.log(questionList);
-
     return (
     <>
         {loading && questionList.length > 0 ? <TestCard testData={questionList} /> : "Whoops! The questions have not loaded."}
