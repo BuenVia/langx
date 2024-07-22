@@ -15,10 +15,10 @@ const TypeOne = (props) => {
     }
 
     return (<>
-    {props.testObj.instruction ? <p>{props.testObj.instruction}</p> : null}
-        <p>{props.testObj.question}</p>
-        <input type="text" name="userAns" onChange={handleChange}/>
-        <button onClick={handleGo}>Go</button>
+    {props.testObj.instruction ? <p className="test__instruction">{props.testObj.instruction}</p> : null}
+        <p className="test__question">{props.testObj.question}</p>
+        <textarea type="text" className="test__input" name="userAns" onChange={handleChange}></textarea>
+        <button className="test__btn" onClick={handleGo}>Go</button>
     </>)
 }
 

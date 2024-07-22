@@ -48,7 +48,7 @@ const Assessment = (props) => {
         return (
             <div className="assessment__form">
                 {isActive ? <p className="assessment__question">{assessment[questionIndex].question}</p> : "Well done!"}
-                {isActive ? <input type="text" style={{color: incorrect}} onChange={handleChange} className="assessment__input" value={answer} autoFocus required/> : null}
+                {isActive ? <input type="text" style={{color: incorrect}} onChange={handleChange} className="assessment__input" value={answer} required placeholder="Type your answer here..."/> : null}
                 {isActive ? <button className="assessment__btn" onClick={handleCheck}>Submit</button> : <a href="/" className="learn-more">Home</a> }
             </div>
         )

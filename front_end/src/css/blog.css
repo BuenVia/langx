@@ -67,10 +67,10 @@
 
 .assessment__input {
     margin: .5em;
-    padding: .5em;
-    background-color: transparent;
-    border: none;
-    border-bottom: 2px solid var(--body-txt);
+    padding: .75em;
+    background-color: #555;
+    border: 2px solid var(--body-txt);
+    border-radius: 6px;
     text-align: center;
     color: var(--body-txt);
     outline: none;

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import '../css/testcard.css';
 import TypeOne from "./TypeOne";
 import TypeTwo from "./TypeTwo";
 import TypeThree from "./TypeThree";
@@ -36,13 +37,13 @@ const TestCard = (props) => {
 
 
     return (
-        <>
+        <div className="test__card">
             {isActive ? 
             handleInput(questions[questionIndex])
             :
             <Finish />
         }
-        </>
+        </div>
     )
 }
 
