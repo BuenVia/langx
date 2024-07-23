@@ -1,15 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import TypeBtn from "./TypeBtn";
 
 const TypeTwo = (props) => {
 
     const [answer, setAnswer] = useState("")
     const [active, setActive] = useState("")
+    const [ansList, setAnsList] = useState([])
     const [empty, setEmpty] = useState({borderColor: "", placeholder: ""})
 
-    const handleChange = (e) => {
-        const { value, id } = e.target
+    const handleChange = (id, value) => {
         setActive(id)
         setAnswer(value)
+        console.log(id);
     }
 
     const handleGo = () => {
@@ -20,14 +22,23 @@ const TypeTwo = (props) => {
             props.checkAns(res)
         }
     }
+
     
+    useEffect(() => {
+        const ansArr = [props.testObj.answer, props.testObj.option_one]
+        const shuffleAns = (arr) => {
+            return arr.sort(() => Math.random() - 0.5)
+        }
+        setAnsList(shuffleAns(ansArr))
+    }, [])
 
     return (<>
         {props.testObj.instruction ? <p className="test__instruction">{props.testObj.instruction} <span className={empty.borderColor}>{empty.placeholder}</span></p> : null}
         <p className="test__question">{props.testObj.question}</p>
         <div className="test__btn__container">
-            <button id={"1"} className={`test__ans__btn ${active === "1" ? "test__btn__active": null}`} value={props.testObj.answer} onClick={handleChange}>{props.testObj.answer}</button>
-            <button id={"2"} className={`test__ans__btn ${active === "2" ? "test__btn__active": null}`} value={props.testObj.option_one} onClick={handleChange}>{props.testObj.option_one}</button>
+            {ansList.map(ans => {
+                return <span key={ansList.indexOf(ans)}><TypeBtn value={ans} id={ansList.indexOf(ans)} active={active} handleChange={handleChange} /></span>
+            })}
         </div>
         <button className="test__btn" onClick={handleGo}>Go</button>
     </>)

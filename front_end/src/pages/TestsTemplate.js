@@ -17,10 +17,11 @@ const TestsTemplate = () => {
             } catch (error) {
                 console.error(error);
             }
-        
         }
         getQuestionList()
     }, [])
+
+    console.log(questionList);
 
     return (
     <>
