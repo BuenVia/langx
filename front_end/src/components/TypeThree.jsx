@@ -3,25 +3,32 @@ import { useState } from "react";
 const TypeThree = (props) => {
 
     const [answer, setAnswer] = useState("")
+    const [active, setActive] = useState("")
+    const [empty, setEmpty] = useState({borderColor: "", placeholder: ""})
 
     const handleChange = (e) => {
-        const { value } = e.target
+        const { value, id } = e.target
+        setActive(id)
         setAnswer(value)
     }
 
     const handleGo = () => {
-        const res = answer === props.testObj.answer ? true : false;
-        props.checkAns(res)
+        if (answer === "") {
+            setEmpty({borderColor: "test__input__empty", placeholder: "Please select an answer...!"})
+        } else {
+            const res = answer === props.testObj.answer ? true : false;
+            props.checkAns(res)
+        }
     }
 
     return (<>
-        {props.testObj.instruction ? <p className="test__instruction">{props.testObj.instruction}</p> : null}
+        {props.testObj.instruction ? <p className="test__instruction">{props.testObj.instruction} <span className={empty.borderColor}>{empty.placeholder}</span></p> : null}
         <p className="test__question">{props.testObj.question}</p>
         <div className="test__btn__container">
-            <button className="test__ans__btn" value={props.testObj.answer} onClick={handleChange}>{props.testObj.answer}</button>
-            <button className="test__ans__btn" value={props.testObj.option_one} onClick={handleChange}>{props.testObj.option_one}</button>
-            <button className="test__ans__btn" value={props.testObj.option_two} onClick={handleChange}>{props.testObj.option_two}</button>
-            <button className="test__ans__btn" value={props.testObj.option_three} onClick={handleChange}>{props.testObj.option_three}</button>
+            <button id={"1"} className={`test__ans__btn ${active === "1" ? "test__btn__active": null}`} value={props.testObj.answer} onClick={handleChange}>{props.testObj.answer}</button>
+            <button id={"2"} className={`test__ans__btn ${active === "2" ? "test__btn__active": null}`} value={props.testObj.option_one} onClick={handleChange}>{props.testObj.option_one}</button>
+            <button id={"3"} className={`test__ans__btn ${active === "3" ? "test__btn__active": null}`} value={props.testObj.option_two} onClick={handleChange}>{props.testObj.option_two}</button>
+            <button id={"4"} className={`test__ans__btn ${active === "4" ? "test__btn__active": null}`} value={props.testObj.option_three} onClick={handleChange}>{props.testObj.option_three}</button>
         </div>
         <button className="test__btn" onClick={handleGo}>Go</button>
     </>)

@@ -31,6 +31,7 @@
 
 .test__input__empty {
     border-color: red;
+    color: red;
 }
 .test__input__empty::placeholder {
     color: red;
@@ -73,6 +74,11 @@
 .test__btn:hover {
     transition: .5s;
     background-color: #999;
+}
+
+.test__btn__active {
+    border: 1px solid rgb(0, 255, 0);
+    opacity: 1;
 }
 
 .test__audio {

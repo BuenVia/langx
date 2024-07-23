@@ -4,7 +4,7 @@ import '../css/home.css';
 import Sidebar from "../components/Sidebar";
 import TestButtons from "../components/TestButtons";
 
-const Home = () => {
+const Dashboard = () => {
 
     const [blogs, setBlogs] = useState([])
 
@@ -29,11 +29,22 @@ const Home = () => {
 
             <div className="content">
 
-                <a href="/french" className="btn">Dashboard</a>
-                
+                <Sidebar />
+
+                <div className="main-section">
+                    {blogs.map(blog => {
+                        return (
+                            <div key={blog.id} className="card">
+                                <h2>{blog.name}</h2>
+                                <p>words for people or things...</p>
+                                <TestButtons testId={blog.id} />
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
         </div>
     );
   };
   
-  export default Home;
+  export default Dashboard;
