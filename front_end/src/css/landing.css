@@ -1,0 +1,20 @@
+.landing__content {
+    /* height: 100vh; */
+}
+
+.landing__link__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    gap: 1em;
+}
+
+.landing__french {
+    width: 200px;
+}
+  
+.landing__spanish {
+    width: 200px;
+}

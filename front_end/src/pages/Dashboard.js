@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from 'axios'
-import '../css/home.css';
+import '../css/dashboard.css';
 import Sidebar from "../components/Sidebar";
 import TestButtons from "../components/TestButtons";
 

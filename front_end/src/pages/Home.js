@@ -1,35 +1,22 @@
-import { useEffect, useState } from "react";
-import axios from 'axios'
-import '../css/home.css';
-import Sidebar from "../components/Sidebar";
-import TestButtons from "../components/TestButtons";
+import '../css/landing.css';
+
+
 
 const Home = () => {
 
-    const [blogs, setBlogs] = useState([])
-
-    useEffect(() => {
-        const url = "http://127.0.0.1:8000/api/blogs/"
-        const getBlogs = async () => {
-            try {
-                await axios.get(url).then(res => setBlogs(res.data))
-            } catch (error) {
-                console.error(error);
-            }
-        }
-        getBlogs()
-    }, [])
-
     return (
         <div className="container p-3">
-            <header className="header">
+            {/* <header className="header">
                 <h1 className="title">LangX</h1>
                 <p className="tagline">"Unlock the World with Words"</p>
-            </header>
+            </header> */}
 
-            <div className="content">
+            <div className="landing__content">
 
-                <a href="/french" className="btn">Dashboard</a>
+                <div className='landing__link__container'>
+                    <a href="/french"><img span className="landing__french" src="/assets/france.svg" alt="france.svg"/></a>
+                    <a href="/#"><img span className="landing__spanish" src="/assets/spain.svg" alt="spain.svg"/></a>
+                </div>
                 
             </div>
         </div>

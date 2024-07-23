@@ -2,6 +2,10 @@ import { Outlet, Link } from "react-router-dom";
 import '../css/layout.css';
 
 const Layout = () => {
+
+  const date = new Date()
+  const year = date.getFullYear()
+
   return (
     <>
       <nav className="navbar">
@@ -21,7 +25,8 @@ const Layout = () => {
       </main>
 
       <footer className="footer">
-        <p>&copy; 2024 LangX. All rights reserved.</p>
+        <p>Powered by <a className="footer__link" href="https://mjclifford.com" target="_blank" rel="noopener noreferrer">MJClifford.com</a></p>
+        <p>&copy; {year} LangX. All rights reserved.</p>
       </footer>
         
     </>
