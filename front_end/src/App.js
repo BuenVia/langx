@@ -10,8 +10,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route index element={<Home />} />
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
           <Route path="french" element={<Dashboard />} />
           <Route path="blogs/:id" element={<Blogs />} />
           <Route path="questions/:id" element={<TestsTemplate />} />

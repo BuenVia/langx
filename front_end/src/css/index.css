@@ -25,8 +25,8 @@ body, html, #root, .App {
   background-color: var(--body-bg);
   color: var(--body-txt);
 }
-
+/* 
 .App {
   text-align: center;
   padding: 20px;
-}
+} */

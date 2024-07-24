@@ -1,5 +1,32 @@
+.landing__container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing__container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/public/assets/headerbg.svg');
+    background-size: 50%; /* Scale the SVG to 50% of its original size */
+    background-repeat: no-repeat    ;
+    opacity: 0.2;
+    pointer-events: none;
+  }
+
 .landing__content {
-    /* height: 100vh; */
+    text-align: center;
+    font-size: 36px
+}
+
+.landing__box {
+    margin: ;
 }
 
 .landing__link__container {
