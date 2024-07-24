@@ -32,7 +32,15 @@
 
 .blog__body p {
     margin: .5em 0;
+    border: 1px soi;
 }
+
+.blog__body blockquote {
+    padding: 0 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border-left: 3px solid greenyellow;
+  }
 
 .blog__body table{
     margin: 1em 0;
