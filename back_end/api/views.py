@@ -1,15 +1,47 @@
-from django.shortcuts import render #type: ignore
+from django.shortcuts import render, redirect #type: ignore
+from django.contrib import messages
 from django.http import HttpResponse #type: ignore
 from rest_framework import status #type: ignore
 from rest_framework.views import APIView #type: ignore
 from rest_framework.response import Response #type: ignore
+import csv
 
 from .models import GrammarBlog, GrammarTestSection, GrammarTest, GrammarAssessment
 from .serializer import GrammarBlogSerializer, GrammarTestSectionSerializer, GrammarTestSerializer, GrammarAssessmentSerializer
+from .forms import CSVImportForm
 
 # Create your views here.
 def index(request):
     return HttpResponse("Hello World!")
+
+def bulk_import_view(request):
+    if request.method == 'POST':
+        form = CSVImportForm(request.POST, request.FILES)
+        if form.is_valid():
+            csv_file = request.FILES['csv_file']
+            decoded_file = csv_file.read().decode('utf-8').splitlines()
+            reader = csv.DictReader(decoded_file)
+            for row in reader:
+                GrammarTest.objects.create(
+                    test_type=row['test_type'],
+                    instruction=row['instruction'],
+                    question=row['question'],
+                    answer=row['answer'],
+                    option_one=row['option_one'],
+                    option_two=row['option_two'],
+                    option_three=row['option_three'],
+                    feedback=row['feedback'],
+                    test_section_id=row['test_section']
+                )
+            messages.success(request, "Bulk import successful.")
+            return redirect('admin:myapp_grammartest_changelist')
+    else:
+        form = CSVImportForm()
+    
+    context = {
+        'form': form
+    }
+    return render(request, 'admin/bulk_import.html', context)
 
 ### BLOGS
 

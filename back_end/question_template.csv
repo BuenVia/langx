@@ -1,0 +1,7 @@
+question,answer,instruction,option_one,option_two,option_three,feedback,test_section,test_type
+House,maison,Write the translation in French,,,,,1,1
+Fleur,feminine,Choose the correct gender,masculine,,,,1,2
+Book,livre,Choose the correct translation,papier,calendrier,plume,,1,3
+Dog,chien,Write the translation in French,,,,,1,1
+Chaise,feminine,Choose the correct gender,masculine,,,,1,2
+Pen,stylo,Choose the correct translation,crayon,feuille,encre,,1,3
