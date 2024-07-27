@@ -43,20 +43,23 @@
 
 /* Sidebar styling */
 .sidebar {
-    background-color: var(--card-bg);
-    border: 2px solid var(--border-clr);
+    /* background-color: var(--card-bg);
+    border: 2px solid var(--border-clr); */
     border-radius: 10px;
     padding: 20px;
     width: 250px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     margin-right: 20px;
     text-align: left;
     flex-shrink: 0;
   }
   
   .sidebar h2 {
-    font-size: 1.5em;
     margin-top: 0;
+    padding: .5em;
+    font-size: 1.5em;
+    background-color: var(--nav-bg);
+    border-radius: 10px;
   }
   
   .sidebar ul {
@@ -65,7 +68,7 @@
   }
   
   .sidebar ul li {
-    margin: 10px 0;
+    margin: 1em 0;
   }
   
   .sidebar ul li a {
@@ -85,22 +88,19 @@
   }
   
   .card {
-    background-color: var(--card-bg);
-    border: 2px solid var(--border-clr);
-    border-radius: 10px;
+    /* background-color: var(--card-bg);
+    border: 2px solid var(--border-clr); */
+    /* border-radius: 10px; */
     width: 100%;
     /* max-width: 300px; */
     padding: 20px;
     margin: 0 0 10px auto;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     transition: transform 0.2s;
   }
   
-  .card:hover {
-    transform: scale(1.05);
-  }
-  
+
   .card h2 {
     font-size: 1.5em;
     margin: 0 0 10px 0;
@@ -109,6 +109,19 @@
   .card p {
     font-size: 1em;
     margin: 0 0 20px 0;
+  }
+
+  .card__title {
+    background-image: linear-gradient(75deg, var(--nav-bg), rgb(155, 73, 255));
+    padding: 1em;
+    margin-bottom: 1em;
+    border-radius: 10px;
+  }
+  .card__test__btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   
   .learn-more {

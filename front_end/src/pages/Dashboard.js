@@ -35,9 +35,13 @@ const Dashboard = () => {
                     {blogs.map(blog => {
                         return (
                             <div key={blog.id} className="card">
-                                <h2>{blog.name}</h2>
+                                <div className="card__title">
+                                    <h2>{blog.name}</h2>
+                                </div>
                                 <p>words for people or things...</p>
-                                <TestButtons testId={blog.id} />
+                                <div className="card__test__btns">
+                                    <TestButtons testId={blog.id} />
+                                </div>
                             </div>
                         )
                     })}

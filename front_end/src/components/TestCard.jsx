@@ -13,12 +13,16 @@ const TestCard = (props) => {
     const [questionIndex, setQuestionIndex] = useState(0)
     const [answers, setAnswers] = useState([])
     const [isActive, setIsActive] = useState(true)
+    const [questionCard, setQuestionCard] = useState(true)
+    const [feedback, setFeedback] = useState(null)
 
     const handleGo = (ans) => {
         if (!ans) {
             questions[questionIndex].result = "false"
+            setFeedback(false)
         } else {
             questions[questionIndex].result = "true"
+            setFeedback(true)
         }
         setAnswers((prevVals) => {
             return [
@@ -26,9 +30,26 @@ const TestCard = (props) => {
                 questions[questionIndex]
             ]
         })
+        setQuestionCard(false)
+    }
+    
+    const handleFeedback = () => {
+        
+        return (
+            <>
+                <p>{questions[questionIndex].question}</p>
+                <p style={{ color: feedback ? "green" : "red" }}>{questions[questionIndex].answer}</p>
+                <button className="test__btn" style={{ backgroundColor: feedback ? "green" : "red" }} onClick={handleNext}>Next</button>
+            </>
+        )
+    }
+
+    const handleNext = () => {
         setQuestionIndex((preVal) => {
             return preVal < questions.length - 1? preVal + 1 : setIsActive(false);
         })
+        setQuestionCard(true)
+        setFeedback(null)
     }
 
 
@@ -51,9 +72,10 @@ const TestCard = (props) => {
     return (
         <div className="test__card">
             {isActive ? 
-            handleInput(questions[questionIndex])
+            <div>
+                {questionCard ? handleInput(questions[questionIndex]) : handleFeedback()}
+            </div>
             :
-            // console.log(JSON.stringify(answers))
             <Finish results={answers} />
         }
         </div>
