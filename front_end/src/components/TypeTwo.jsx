@@ -33,7 +33,6 @@ const TypeTwo = (props) => {
     }, [])
 
     return (<>
-        {props.testObj.instruction ? <p className="test__instruction">{props.testObj.instruction} <span className={empty.borderColor}>{empty.placeholder}</span></p> : null}
         <p className="test__question">{props.testObj.question}</p>
         <div className="test__btn__container">
             {ansList.map(ans => {

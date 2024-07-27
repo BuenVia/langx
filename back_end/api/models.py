@@ -25,6 +25,7 @@ class GrammarAssessment(models.Model):
 
 class GrammarTestSection(models.Model):
     name = models.CharField(max_length=10)
+    instruction = models.TextField(blank=True)
     blog = models.ForeignKey(GrammarBlog, on_delete=models.CASCADE)
     
     class Meta:
@@ -35,7 +36,6 @@ class GrammarTestSection(models.Model):
 
 class GrammarTest(models.Model):
     test_type = models.IntegerField()
-    instruction = models.TextField(blank=True)
     question = models.CharField(max_length=255)
     answer = models.CharField(max_length=255)
     option_one = models.CharField(max_length=255, blank=True)

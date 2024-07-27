@@ -15,7 +15,7 @@ class GrammarAssessmentSerializer(serializers.ModelSerializer):
 class GrammarTestSectionSerializer(serializers.ModelSerializer):
     class Meta:
         model = GrammarTestSection
-        fields = ['id', 'name', 'blog']
+        fields = ['id', 'name', 'blog', 'instruction']
 
 class GrammarTestSerializer(serializers.ModelSerializer):
     class Meta:
@@ -23,7 +23,6 @@ class GrammarTestSerializer(serializers.ModelSerializer):
         fields = [
             'id',
             'test_type',
-            'instruction',
             'question',
             'answer',
             'option_one',

@@ -31,7 +31,6 @@ const TypeFour = (props) => {
     }
 
     return (<>
-        {props.testObj.instruction ? <p className="test__instruction">{props.testObj.instruction}</p> : null}
         <button className="test__audio" onClick={playAudio}>Play audio <i className="fas fa-volume-up"></i></button>
         <textarea className={`test__input ${empty.borderColor}`} name="userAns" onChange={handleChange} value={answer} placeholder={empty.placeholder}></textarea>
         <button className="test__btn" onClick={handleGo}>Go</button>

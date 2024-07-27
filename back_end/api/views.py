@@ -65,12 +65,20 @@ class GrammarAssessmentViewSet(APIView):
         serializer = GrammarAssessmentSerializer(gas, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
-class GrammarTestSectionViewSet(APIView):
+class GrammarTestSectionsViewSet(APIView):
     def get(self, request, id, *args, **kwargs):
         gts = GrammarTestSection.objects.filter(blog=id)
         print(gts)
         serializer = GrammarTestSectionSerializer(gts, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+class GrammarTestSectionViewSet(APIView):
+    def get(self, request, id, *args, **kwargs):
+        gt = GrammarTestSection.objects.filter(id=id)
+        print(gt)
+        serializer = GrammarTestSectionSerializer(gt, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
 
 class GrammarTestsViewSet(APIView):
     def get(self, request, id, *args, **kwargs):

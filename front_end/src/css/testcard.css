@@ -1,3 +1,9 @@
+.test__section__card {
+    margin-top: 2em;
+    padding: 0 0 0 2em;
+    font-size: 20px;
+}
+
 .test__card {
     display: flex;
     flex-direction: column;

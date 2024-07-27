@@ -31,7 +31,6 @@ class GrammarTestAdmin(admin.ModelAdmin):
                 for row in reader:
                     GrammarTest.objects.create(
                         test_type=row['test_type'],
-                        instruction=row['instruction'],
                         question=row['question'],
                         answer=row['answer'],
                         option_one=row['option_one'],
