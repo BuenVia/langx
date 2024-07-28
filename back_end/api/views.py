@@ -1,18 +1,18 @@
 from django.shortcuts import render, redirect #type: ignore
-from django.contrib import messages
+from django.contrib import messages #type: ignore
 from django.http import HttpResponse #type: ignore
 from rest_framework import status #type: ignore
 from rest_framework.views import APIView #type: ignore
 from rest_framework.response import Response #type: ignore
 import csv
 
-from .models import GrammarBlog, GrammarTestSection, GrammarTest, GrammarAssessment
-from .serializer import GrammarBlogSerializer, GrammarTestSectionSerializer, GrammarTestSerializer, GrammarAssessmentSerializer
+from .models import GrammarCategory, GrammarSubCategory, GrammarTestSection, GrammarTest, GrammarBlog, GrammarBlogAssessment
+from .serializer import GrammarCategorySerializer, GrammarSubCategorySerializer, GrammarTestSectionSerializer, GrammarTestSerializer, GrammarBlogSerializer, GrammarBlogAssessmentSerializer
 from .forms import CSVImportForm
 
 # Create your views here.
 def index(request):
-    return HttpResponse("Hello World!")
+    return HttpResponse("Welcome to the LangX API...")
 
 def bulk_import_view(request):
     if request.method == 'POST':
@@ -43,42 +43,31 @@ def bulk_import_view(request):
     }
     return render(request, 'admin/bulk_import.html', context)
 
-### BLOGS
-
-class GrammarBlogsViewSet(APIView):
+### Categories
+class GrammarCategoryViewSet(APIView):
     def get(self, request, *args, **kwargs):
-        gbs = GrammarBlog.objects.all()
-        serializer = GrammarBlogSerializer(gbs, many=True)
+        gcs = GrammarCategory.objects.all()
+        serializer = GrammarCategorySerializer(gcs, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
-class GrammarBlogViewSet(APIView):
+class GrammarSubCategoryViewSet(APIView):
     def get(self, request, id, *args, **kwargs):
-        gbs = GrammarBlog.objects.filter(id=id)
-        serializer = GrammarBlogSerializer(gbs, many=True)
+        gscs = GrammarSubCategory.objects.filter(id=id)
+        serializer = GrammarSubCategorySerializer(gscs, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
 ### TESTS
-class GrammarAssessmentViewSet(APIView):
-    def get(self, request, id, *args, **kwargs):
-        gas = GrammarAssessment.objects.filter(blog=id)
-        print(gas)
-        serializer = GrammarAssessmentSerializer(gas, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
-    
 class GrammarTestSectionsViewSet(APIView):
     def get(self, request, id, *args, **kwargs):
-        gts = GrammarTestSection.objects.filter(blog=id)
-        print(gts)
+        gts = GrammarTestSection.objects.filter(sub_category=id)
         serializer = GrammarTestSectionSerializer(gts, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 class GrammarTestSectionViewSet(APIView):
     def get(self, request, id, *args, **kwargs):
         gt = GrammarTestSection.objects.filter(id=id)
-        print(gt)
         serializer = GrammarTestSectionSerializer(gt, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
-
 
 class GrammarTestsViewSet(APIView):
     def get(self, request, id, *args, **kwargs):
@@ -90,4 +79,23 @@ class GrammarTestViewSet(APIView):
     def get(self, request, id, *args, **kwargs):
         gt = GrammarTest.objects.filter(test_section=id)
         serializer = GrammarTestSerializer(gt, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+### BLOGS
+class GrammarBlogsViewSet(APIView):
+    def get(self, request, id, *args, **kwargs):
+        gbs = GrammarBlog.objects.all()
+        serializer = GrammarBlogSerializer(gbs, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+class GrammarBlogViewSet(APIView):
+    def get(self, request, id, *args, **kwargs):
+        gb = GrammarBlog.objects.filter(sub_category=id)
+        serializer = GrammarBlogSerializer(gb, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+class GrammarAssessmentViewSet(APIView):
+    def get(self, request, id, *args, **kwargs):
+        gas = GrammarBlogAssessment.objects.filter(blog=id)
+        serializer = GrammarBlogAssessmentSerializer(gas, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)

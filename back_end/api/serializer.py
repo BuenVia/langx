@@ -1,21 +1,22 @@
-from .models import GrammarBlog, GrammarTest, GrammarTestSection, GrammarAssessment
+from .models import GrammarCategory, GrammarSubCategory, GrammarTestSection, GrammarTest, GrammarBlog, GrammarBlogAssessment
 from rest_framework import serializers # type: ignore
 
 
-class GrammarBlogSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = GrammarBlog
-        fields = ["id", "name", "description", "author", "body", "date_created"]
 
-class GrammarAssessmentSerializer(serializers.ModelSerializer):
+class GrammarCategorySerializer(serializers.ModelSerializer):
     class Meta:
-        model = GrammarAssessment
-        fields = ['id', 'question', 'answer', 'blog']
+        model = GrammarCategory
+        fields = ["id", "name", "description"]
+        
+class GrammarSubCategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GrammarSubCategory
+        fields = ["id", "name", "category"]
 
 class GrammarTestSectionSerializer(serializers.ModelSerializer):
     class Meta:
         model = GrammarTestSection
-        fields = ['id', 'name', 'blog', 'instruction']
+        fields = ['id', 'name', 'instruction', 'sub_category']
 
 class GrammarTestSerializer(serializers.ModelSerializer):
     class Meta:
@@ -31,3 +32,14 @@ class GrammarTestSerializer(serializers.ModelSerializer):
             'feedback',
             'test_section'
         ]
+  
+class GrammarBlogSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GrammarBlog
+        fields = ['id', 'name', 'author', 'body', 'date_created', 'sub_category']
+      
+class GrammarBlogAssessmentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GrammarBlogAssessment
+        fields = ['id', 'question', 'answer', 'blog']
+

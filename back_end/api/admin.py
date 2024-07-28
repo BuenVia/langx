@@ -7,7 +7,7 @@ from django.contrib import messages
 import csv
 from .forms import CSVImportForm
 
-from .models import GrammarBlog, GrammarTest, GrammarTestSection, GrammarAssessment
+from .models import GrammarCategory, GrammarSubCategory, GrammarTestSection, GrammarTest, GrammarBlog, GrammarBlogAssessment
 from .views import bulk_import_view
 
 class GrammarTestAdmin(admin.ModelAdmin):
@@ -49,7 +49,9 @@ class GrammarTestAdmin(admin.ModelAdmin):
         return render(request, 'admin/bulk_import.html', context)
 
 # Register your models here.
-admin.site.register(GrammarBlog)
-admin.site.register(GrammarAssessment)
+admin.site.register(GrammarCategory)
+admin.site.register(GrammarSubCategory)
 admin.site.register(GrammarTestSection)
 admin.site.register(GrammarTest, GrammarTestAdmin)
+admin.site.register(GrammarBlog)
+admin.site.register(GrammarBlogAssessment)
