@@ -2,6 +2,7 @@ from django.db import models
 
 class GrammarBlog(models.Model):
     name = models.CharField(max_length=90)
+    description = models.CharField(max_length=255)
     author = models.CharField(max_length=90)
     body = models.TextField()
     date_created = models.DateTimeField(auto_now_add=True)

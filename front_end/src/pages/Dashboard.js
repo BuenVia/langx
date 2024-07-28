@@ -38,7 +38,7 @@ const Dashboard = () => {
                                 <div className="card__title">
                                     <h2>{blog.name}</h2>
                                 </div>
-                                <p>words for people or things...</p>
+                                <p>{blog.description}</p>
                                 <div className="card__test__btns">
                                     <TestButtons testId={blog.id} />
                                 </div>

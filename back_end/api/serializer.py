@@ -5,7 +5,7 @@ from rest_framework import serializers # type: ignore
 class GrammarBlogSerializer(serializers.ModelSerializer):
     class Meta:
         model = GrammarBlog
-        fields = ["id", "name", "author", "body", "date_created"]
+        fields = ["id", "name", "description", "author", "body", "date_created"]
 
 class GrammarAssessmentSerializer(serializers.ModelSerializer):
     class Meta:
