@@ -21,13 +21,13 @@ const TestButtons = (props) => {
 
       const buttonList = () => {
         return testList.map(test => {
-            return <a key={test.id} className="learn-more" href={`questions/${test.id}`}>{test.name}</a>
+            return <a key={test.id} className="card__test__btn" href={`questions/${test.id}`}>{test.name}</a>
         })
       }
 
-      return <div>
+      return <>
         {loading ? buttonList() : "NULL"}
-      </div>
+      </>
 }
 
 export default TestButtons

@@ -22,12 +22,12 @@ const Category = (props) => {
 
     return (
         <>
-            <div key={props.category.id} className="card">
-                <div className="card__title">
+            <div key={props.category.id} className="category__card">
+                <div className="category__card__title">
                     <h2>{props.category.name}</h2>
                 </div>
-                <p>{props.category.description}</p>
-                {loading ? <div className="card__test__btns">
+                <p className="category__card__desc">{props.category.description}</p>
+                {loading ? <div>
                     {subCategories.map(subcat => {
                         return <SubCategory key={subcat.id} subcat={subcat} />
                     })}

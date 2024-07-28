@@ -7,8 +7,15 @@ const SubCategory = (props) => {
                 <div className="">
                     <h2>{props.subcat.name}</h2>
                 </div>
-                <div className="card__test__btns">
-                    <TestButtons testId={props.subcat.id} />
+                <div className="card__test__container">
+                    <div className="card__test__learn">
+                        <h3>Learn</h3>
+                        <a className="card__test__btn" href={`blogs/${props.subcat.id}`}>{props.subcat.name}</a>
+                    </div>
+                    <div className="card__test__btns">
+                        <h3>Practice</h3>
+                        <TestButtons testId={props.subcat.id} />
+                    </div>
                 </div>
             </div>
         </>
