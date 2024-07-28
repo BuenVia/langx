@@ -3,16 +3,19 @@ import axios from 'axios'
 import '../css/dashboard.css';
 import Sidebar from "../components/Sidebar";
 import TestButtons from "../components/TestButtons";
+import Category from "../components/Category";
 
 const Dashboard = () => {
 
-    const [blogs, setBlogs] = useState([])
+    const [categories, setCategories] = useState([])
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
-        const url = "http://127.0.0.1:8000/api/blogs/"
+        const url = "http://127.0.0.1:8000/api/category"
         const getBlogs = async () => {
             try {
-                await axios.get(url).then(res => setBlogs(res.data))
+                await axios.get(url).then(res => setCategories(res.data))
+                setLoading(true)
             } catch (error) {
                 console.error(error);
             }
@@ -29,23 +32,16 @@ const Dashboard = () => {
 
             <div className="content">
 
-                <Sidebar />
-
-                <div className="main-section">
-                    {blogs.map(blog => {
-                        return (
-                            <div key={blog.id} className="card">
-                                <div className="card__title">
-                                    <h2>{blog.name}</h2>
-                                </div>
-                                <p>{blog.description}</p>
-                                <div className="card__test__btns">
-                                    <TestButtons testId={blog.id} />
-                                </div>
-                            </div>
-                        )
-                    })}
-                </div>
+            <Sidebar />
+            {loading ?                 
+                    <div className="main-section">
+                        {categories.map(category => {
+                            return (
+                                <Category key={category.id} category={category} />
+                            )
+                        })}
+                    </div>
+                : null}
             </div>
         </div>
     );

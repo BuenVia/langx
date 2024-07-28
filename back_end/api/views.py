@@ -49,10 +49,16 @@ class GrammarCategoryViewSet(APIView):
         gcs = GrammarCategory.objects.all()
         serializer = GrammarCategorySerializer(gcs, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
-    
+
+class GrammarSubCategoriesViewSet(APIView):
+    def get(self, request, *args, **kwargs):
+        gscs = GrammarSubCategory.objects.all()
+        serializer = GrammarSubCategorySerializer(gscs, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
 class GrammarSubCategoryViewSet(APIView):
     def get(self, request, id, *args, **kwargs):
-        gscs = GrammarSubCategory.objects.filter(id=id)
+        gscs = GrammarSubCategory.objects.filter(category=id)
         serializer = GrammarSubCategorySerializer(gscs, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     

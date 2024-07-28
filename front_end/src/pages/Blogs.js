@@ -8,7 +8,7 @@ import Assessment from "../components/Assessment";
 const Blogs = () => {
   
   const [loading, setLoading] = useState(false)
-  const [blog, setBlog] = useState({})
+  const [blog, setBlog] = useState([])
 
   useEffect(() => {
     const pathname = window.location.pathname
@@ -29,7 +29,6 @@ const Blogs = () => {
 
         <div className="card__blog">
             <h1 className="blog__title">{blog.name}</h1>
-            {/* <p>By {blog.author}</p> */}
             <div className="blog__body">
               <ReactMarkdown children={blog.body} remarkPlugins={[remarkGfm]} />
             </div>

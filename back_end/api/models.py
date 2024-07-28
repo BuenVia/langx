@@ -11,7 +11,7 @@ class GrammarCategory(models.Model):
         return f"Category: {self.name}"
 
 class GrammarSubCategory(models.Model):
-    name = models.CharField(max_length=10)
+    name = models.CharField(max_length=90)
     category = models.ForeignKey(GrammarCategory, on_delete=models.CASCADE)
     
     class Meta:

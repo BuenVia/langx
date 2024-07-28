@@ -4,10 +4,10 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name="index"),
-    path('api/category/', views.GrammarCategoryViewSet.as_view()),
     # Categories
-    path('api/category/<id>', views.GrammarSubCategoryViewSet.as_view()),
     path('api/category', views.GrammarCategoryViewSet.as_view()),
+    path('api/sub-category/', views.GrammarSubCategoriesViewSet.as_view()),
+    path('api/sub-category/<id>', views.GrammarSubCategoryViewSet.as_view()),
     # Tests
     path('api/tests/<id>', views.GrammarTestSectionsViewSet.as_view()),
     path('api/section/questions/<id>', views.GrammarTestSectionViewSet.as_view()),
