@@ -6,33 +6,33 @@ const dataArr = [
         "conjugations": [
             {
                 "id": "11",
-                "fre": "je suis",
-                "eng": "I am"
+                "answer": ["je suis"],
+                "question": "I am"
             },
             {
                 "id": "12",
-                "fre": "tu es",
-                "eng": "you are"
+                "answer": ["tu es"],
+                "question": "you are"
             },
             {
                 "id": "13",
-                "fre": "il/elle/on est",
-                "eng": "he/she/one is"
+                "answer": ["il/elle/on est", "il est", "elle est", "on est"],
+                "question": "he/she/one is"
             },
             {
                 "id": "14",
-                "fre": "nous sommes",
-                "eng": "we are"
+                "answer": ["nous sommes"],
+                "question": "we are"
             },
             {
                 "id": "15",
-                "fre": "vous êtes",
-                "eng": "you are (pl)"
+                "answer": ["vous êtes"],
+                "question": "you are (pl)"
             },
             {
                 "id": "16",
-                "fre": "ils/elles sont",
-                "eng": "they are"
+                "answer": ["ils/elles sont", "ils sont", "elles sont"],
+                "question": "they are"
             }
         ]
     },
@@ -43,33 +43,33 @@ const dataArr = [
         "conjugations": [
             {
                 "id": "21",
-                "fre": "je vais",
-                "eng": "I go"
+                "answer": ["je vais"],
+                "question": "I go"
             },
             {
                 "id": "22",
-                "fre": "tu vas",
-                "eng": "you go"
+                "answer": ["tu vas"],
+                "question": "you go"
             },
             {
                 "id": "23",
-                "fre": "il/elle/on va",
-                "eng": "he/she/one goes"
+                "answer": ["il/elle/on va", "il va", "elle va", "on va"],
+                "question": "he/she/one goes"
             },
             {
                 "id": "24",
-                "fre": "nous allons",
-                "eng": "we go"
+                "answer": ["nous allons"],
+                "question": "we go"
             },
             {
                 "id": "25",
-                "fre": "vous allez",
-                "eng": "you go (pl)"
+                "answer": ["vous allez"],
+                "question": "you go (pl)"
             },
             {
                 "id": "26",
-                "fre": "ils/elles vont",
-                "eng": "they go"
+                "answer": ["ils/elles vont", "ils vont", "elles vont"],
+                "question": "they go"
             }
         ]
     },
@@ -80,33 +80,33 @@ const dataArr = [
         "conjugations": [
             {
                 "id": "31",
-                "fre": "je veux",
-                "eng": "I want"
+                "answer": ["je veux"],
+                "question": "I want"
             },
             {
                 "id": "32",
-                "fre": "tu veux",
-                "eng": "you want"
+                "answer": ["tu veux"],
+                "question": "you want"
             },
             {
                 "id": "33",
-                "fre": "il/elle/on veut",
-                "eng": "he/she/one wants"
+                "answer": ["il/elle/on veut", "il veut", "elle veut", "on veut"],
+                "question": "he/she/one wants"
             },
             {
                 "id": "34",
-                "fre": "nous voulons",
-                "eng": "we want"
+                "answer": ["nous voulons"],
+                "question": "we want"
             },
             {
                 "id": "35",
-                "fre": "vous voulez",
-                "eng": "you want (pl)"
+                "answer": ["vous voulez"],
+                "question": "you want (pl)"
             },
             {
                 "id": "36",
-                "fre": "ils/elles veulent",
-                "eng": "they want"
+                "answer": ["ils/elles veulent", "ils veulent", "elles veulent"],
+                "question": "they want"
             }
         ]
     },
@@ -117,38 +117,37 @@ const dataArr = [
         "conjugations": [
             {
                 "id": "41",
-                "fre": "je peux",
-                "eng": "I can"
+                "answer": ["je peux"],
+                "question": "I can"
             },
             {
                 "id": "42",
-                "fre": "tu peux",
-                "eng": "you can"
+                "answer": ["tu peux"],
+                "question": "you can"
             },
             {
                 "id": "43",
-                "fre": "il/elle/on peut",
-                "eng": "he/she/one can"
+                "answer": ["il/elle/on peut", "il peut", "elle peut", "on peut"],
+                "question": "he/she/one can"
             },
             {
                 "id": "44",
-                "fre": "nous pouvons",
-                "eng": "we can"
+                "answer": ["nous pouvons"],
+                "question": "we can"
             },
             {
                 "id": "45",
-                "fre": "vous pouvez",
-                "eng": "you can (pl)"
+                "answer": ["vous pouvez"],
+                "question": "you can (pl)"
             },
             {
                 "id": "46",
-                "fre": "ils/elles peuvent",
-                "eng": "they can"
+                "answer": ["ils/elles peuvent", "ils peuvent", "elles peuvent"],
+                "question": "they can"
             }
         ]
     }
 ]
-
 
 
 export default dataArr

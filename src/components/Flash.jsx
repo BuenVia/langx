@@ -11,6 +11,7 @@ const Flash = (props) => {
     const [colour, setColour] = useState("")
     const [loading, setLoading] = useState(false)
 
+    // Randomise the answer array
     useEffect(() => {
         const shuffle = (array) => { 
             for (let i = array.length - 1; i > 0; i--) { 
@@ -28,21 +29,33 @@ const Flash = (props) => {
         setUserAns(value)
     }
 
+    // Check answer
     const checkAns = () => {
         if (userAns === "") {
             return
         }
-        else if (userAns === questions[questionIndex].fre) {
-            setColour("green")
-            questions[questionIndex]["ans"] = "true"
-        } else {
-            setColour("red")
-            questions[questionIndex]["ans"] = "false"
+        else {
+            const ansExists = searchAnsArr(questions[questionIndex].answer, userAns)
+            if (ansExists) {
+                setColour("green")
+                questions[questionIndex]["ans"] = "true"
+            } else {
+                setColour("red")
+                questions[questionIndex]["ans"] = "false"
+            }
+            setFeedback(true)
         }
-        setFeedback(true)
 
     }
 
+    // Convert all answers to lower case and search to see if exists
+    const searchAnsArr = (arr, str) => {
+        const lowerCaseArr = arr.map(item => item.toLowerCase())
+        const lowerCaseStr = str.toLowerCase()
+        return lowerCaseArr.includes(lowerCaseStr)
+    }
+
+    // Create the next question
     const nextQuestion = () => {
         if (questionIndex < questions.length -1) {
             setQuestionIndex(prevVal => prevVal +1)
@@ -54,6 +67,7 @@ const Flash = (props) => {
         }
     }
 
+    // From parent component, handles whether to show the 'home' screen.
     const handleActive = () => {
         props.handleActive()
     }
@@ -64,7 +78,7 @@ const Flash = (props) => {
                 :
                 <div className="flashcard_container">
                     <p className="title">{props.choice.infinitive_fre} - {props.choice.verb}</p>
-                    <p className="question" style={{ color: colour }}>{questions[questionIndex].eng}</p>
+                    <p className="question" style={{ color: colour }}>{questions[questionIndex].question}</p>
                     <input type="text" className="answer" style={{ borderColor: colour }} value={userAns} onChange={handleChange} autoFocus />
                     {feedback ? <button className="next_btn" style={{border: `1px solid ${colour}`}} onClick={nextQuestion}>Next</button> : <button onClick={checkAns} className="ans_btn">Submit</button>}
                 </div>
