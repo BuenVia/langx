@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import axios from 'axios'
 import '../css/dashboard.css';
 import Sidebar from "../components/Sidebar";
-import TestButtons from "../components/TestButtons";
 import Category from "../components/Category";
 
 const Dashboard = () => {
