@@ -5,6 +5,7 @@ import Blogs from "./pages/Blogs";
 import TestsTemplate from "./pages/TestsTemplate";
 import NoPage from "./pages/NoPage";
 import Dashboard from "./pages/Dashboard";
+import FlashCard from "./pages/FlashCard";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route index element={<Home />} />
         <Route path="/" element={<Layout />}>
+          <Route path="flash" element={<FlashCard />} />
           <Route path="french" element={<Dashboard />} />
           <Route path="blogs/:id" element={<Blogs />} />
           <Route path="questions/:id" element={<TestsTemplate />} />

@@ -22,20 +22,33 @@
 
 .landing__content {
     text-align: center;
-    font-size: 36px
+    font-size: 16px
 }
 
 .landing__box {
-    margin: ;
+    margin: 1em;
 }
 
 .landing__link__container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: auto;
-    gap: 1em;
+}
+
+@media only screen and (min-width: 800px) {
+    .landing__link__container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        gap: 1em;
+    }
+    .landing__content {
+        text-align: center;
+        font-size: 36px
+    }
 }
 
 .landing__french {
