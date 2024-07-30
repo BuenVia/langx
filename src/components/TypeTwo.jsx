@@ -30,7 +30,7 @@ const TypeTwo = (props) => {
             return arr.sort(() => Math.random() - 0.5)
         }
         setAnsList(shuffleAns(ansArr))
-    }, [])
+    }, [props.testObj.answer, props.testObj.option_one])
 
     return (<>
         <p className="test__question">{props.testObj.question}</p>
