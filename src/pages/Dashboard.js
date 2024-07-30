@@ -25,8 +25,8 @@ const Dashboard = () => {
     return (
         <div className="container p-3">
             <header className="header">
-                <h1 className="title">LangX</h1>
-                <p className="tagline">"Unlock the World with Words"</p>
+                <h1 className="title">LearnX</h1>
+                <p className="tagline">"Personalise Your Learning"</p>
             </header>
 
             <div className="content">
