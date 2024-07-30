@@ -21,7 +21,7 @@ const Assessment = (props) => {
           }
         }
         getBlog()
-      }, [])
+      }, [props.assessId])
 
       const handleChange = (e) => {
         const { value } = e.target

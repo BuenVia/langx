@@ -6,7 +6,7 @@ const TypeThree = (props) => {
     const [answer, setAnswer] = useState("")
     const [active, setActive] = useState("")
     const [ansList, setAnsList] = useState([])
-    const [empty, setEmpty] = useState({borderColor: "", placeholder: ""})
+    // const [empty, setEmpty] = useState({borderColor: "", placeholder: ""})
 
     const handleChange = (id, value) => {
         setActive(id)
@@ -15,7 +15,7 @@ const TypeThree = (props) => {
 
     const handleGo = () => {
         if (answer === "") {
-            setEmpty({borderColor: "test__input__empty", placeholder: "Please select an answer...!"})
+            // setEmpty({borderColor: "test__input__empty", placeholder: "Please select an answer...!"})
         } else {
             const res = answer === props.testObj.answer ? true : false;
             props.checkAns(res)
@@ -28,7 +28,7 @@ const TypeThree = (props) => {
             return arr.sort(() => Math.random() - 0.5)
         }
         setAnsList(shuffleAns(ansArr))
-    }, [])
+    }, [props.testObj.answer, props.testObj.option_one, props.testObj.option_two, props.testObj.option_three])
 
     return (<>
         <p className="test__question">{props.testObj.question}</p>

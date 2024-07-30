@@ -18,7 +18,7 @@ const Category = (props) => {
             }
         }
         getSubCategories()
-    }, [])
+    }, [props.category.id])
 
     return (
         <>
