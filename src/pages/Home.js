@@ -1,23 +1,39 @@
+import { useState } from 'react'
 import '../css/landing.css';
+import Register from '../components/Register';
 
 
 
 const Home = () => {
+    
+    const [showRegister, setShowRegister] = useState(false)
+    
+    const handleClick = () => {
+        setShowRegister(prevVal => !prevVal)
+    }
+
+    const login = () => {
+        return (
+                <div className="landing__card login__card">
+                    <label>Username</label>
+                    <input type="text"></input>
+                    <label>Password</label>
+                    <input type="password"></input>
+                    <button className='landing__btn'>Submit</button>    
+                </div>
+        )
+    }
+    
 
     return (
         <div className="landing__container">
-            <div className="landing__content">
-                <h3>Choose your language</h3>
-
-                <div className='landing__link__container'>
-                    <div className='landing__box'>
-                        <a href="/flash"><img span className="landing__french" src="/assets/france.svg" alt="france.svg"/></a>
-                    </div>
-                    <div className='landing__box'>
-                        <a href="/#"><img span className="landing__spanish" src="/assets/spain.svg" alt="spain.svg"/></a>
-                    </div>
-                </div>
-                
+            {showRegister ? <Register /> : login()}
+            <div className='landing__info'>
+                {showRegister ? 
+                    <p>Already registered? <button className='logreg_btn' onClick={handleClick}>Login</button></p>
+                : 
+                    <p>Not registered? <button className='logreg_btn' onClick={handleClick}>Register</button></p>
+                }
             </div>
         </div>
     );
